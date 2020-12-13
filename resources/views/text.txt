@@ -1,0 +1,301 @@
+        'lname',
+        'gender',
+        'nationality',
+        'cin_or_n_passport',
+        'date_of_birth',
+        'address',
+        'phone',
+        'mobile',
+        'email',
+        'pro_situation',
+        'father_fname',
+        'father_lname',
+        'mother_fname',
+        'mother_lname',
+
+        'bac_intitu',
+        'bac_year',
+        'bac_speciality',
+        'bac_mention',
+
+        'deug_intitu',
+        'deug_year',
+        'deug_speciality',
+        'deug_mention_s1',
+        'deug_mention_s2',
+        'deug_mention_s3',
+        'deug_mention_s4',
+
+        'licence_intitu',
+        'licence_year',
+        'licence_speciality',
+        'licence_mention_s5',
+        'licence_mention_s6',
+
+        'master_intitu',
+        'master_year',
+        'master_speciality',
+        'master_mention_s7',
+        'master_mention_s8',
+        'master_mention_s9',
+        'master_mention_s10',
+
+        'doctoral_training',
+        'research_focus',
+        'labo',
+
+
+        <div class="input-field col s2">
+            <select>
+                <option value="" disabled selected></option>
+                <option value="1">Homme </option>
+                <option value="2">Femme</option>
+            </select>
+            <label>{{ __('words.gender') }} </label>
+        </div>
+        <div class="input-field col s2">
+            <select>
+                <option value="" disabled selected>{{ __('words.pro_situation') }}</option>
+                <option value="1">OUi </option>
+                <option value="2">Non</option>
+            </select>
+            <label>{{ __('words.pro_situation') }}</label>
+        </div>
+        <div class="input-field col s2">
+            <input wire:model.lazy="nationality" id="nationality" name="nationality" type="text" class="validate">
+            <label for="nationality">*{{ __('words.nationality') }}</label>
+        </div>
+        <div class="input-field col s2">
+            <input wire:model.lazy="cin_or_n_passport" id="cin_or_n_passport" name="cin_or_n_passport" type="text" class="validate">
+            <label for="cin_or_n_passport">* {{ __('words.cin_or_n_passport') }}</label>
+        </div>
+        <div class="input-field col s2">
+            <input wire:model.lazy="date_of_birth" id="date_of_birth" name="date_of_birth" type="date" class="validate">
+            <label for="date_of_birth">* {{ __('words.date_of_birth') }}</label>
+        </div>
+        <div class="input-field col s3">
+            <input wire:model.lazy="mobile" id="mobile" name="mobile" type="text" class="validate">
+            <label for="mobile">* {{ __('words.mobile') }}</label>
+        </div>
+        <div class="input-field col s3">
+            <input wire:model.lazy="phone" id="phone" name="phone" type="text" class="validate">
+            <label for="phone">* {{ __('words.phone') }}</label>
+        </div>
+        <div class="input-field col s9">
+            <input wire:model.lazy="address" id="address" name="address" type="text" class="validate">
+            <label for="address">* {{ __('words.address') }}</label>
+        </div>
+        <div class="input-field col s3">
+            <input wire:model.lazy="email" id="email" name="email" type="text" class="validate">
+            <label for="email">* {{ __('words.email') }}</label>
+        </div>
+        <div class="input-field col s3">
+            <input wire:model.lazy="father_fname" id="father_fname" name="father_fname" type="text" class="validate">
+            <label for="father_fname">* {{ __('words.father_fname') }}</label>
+        </div>
+        <div class="input-field col s3">
+            <input wire:model.lazy="father_lname" id="father_lname" name="father_lname" type="text" class="validate">
+            <label for="father_lname">* {{ __('words.father_lname') }}</label>
+        </div>
+        <div class="input-field col s3">
+            <input wire:model.lazy="mother_fname" id="mother_fname" name="mother_fname" type="text" class="validate">
+            <label for="mother_fname">* {{ __('words.mother_fname') }}</label>
+        </div>
+        <div class="input-field col s3">
+            <input wire:model.lazy="mother_lname" id="mother_lname" name="mother_lname" type="text" class="validate">
+            <label for="mother_lname">* {{ __('words.mother_lname') }}</label>
+        </div>
+        <div class="input-field col s2">
+            <input wire:model.lazy="cne" id="cne" name="cne" type="text" class="validate">
+            <label for="cne">* {{ __('words.cne') }}</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input wire:model.lazy="bac_intitu" id="bac_intitu" name="bac_intitu" type="text" class="validate">
+            <label for="bac_intitu">* {{ __('words.bac_intitu') }}</label>
+        </div>
+
+        <div class="input-field col s2">
+            <input wire:model.lazy="bac_year" id="bac_year" name="bac_year" type="date" class="validate">
+            <label for="bac_year">* {{ __('words.bac_year') }}</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input wire:model.lazy="bac_speciality" id="bac_speciality" name="bac_speciality" type="text" class="validate">
+            <label for="bac_speciality">* {{ __('words.bac_speciality') }}</label>
+        </div>
+
+        <div class="input-field col s2">
+            <input wire:model.lazy="bac_mention" id="bac_mention" name="bac_mention" type="text" class="validate">
+            <label for="bac_mention">* {{ __('words.bac_mention') }}</label>
+        </div>
+        <div class="input-field col s2">
+            <input wire:model.lazy="deug_intitu" id="deug_intitu" name="deug_intitu" type="text" class="validate">
+            <label for="deug_intitu">* {{ __('words.deug_intitu') }}</label>
+        </div>
+
+        <div class="input-field col s2">
+            <input wire:model.lazy="deug_year" id="deug_year" name="deug_year" type="date" class="validate">
+            <label for="deug_year">* {{ __('words.deug_year') }}</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input wire:model.lazy="deug_speciality" id="deug_speciality" name="deug_speciality" type="text" class="validate">
+            <label for="deug_speciality">* {{ __('words.deug_speciality') }}</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input wire:model.lazy="deug_mention_s1" id="deug_mention_s1" name="deug_mention_s1" type="text" class="validate">
+            <label for="deug_mention_s1">* {{ __('words.deug_mention_s1') }}</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input wire:model.lazy="deug_mention_s2" id="deug_mention_s2" name="deug_mention_s2" type="text" class="validate">
+            <label for="deug_mention_s2">* {{ __('words.deug_mention_s2') }}</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input wire:model.lazy="deug_mention_s3" id="deug_mention_s3" name="deug_mention_s3" type="text" class="validate">
+            <label for="deug_mention_s3">* {{ __('words.deug_mention_s3') }}</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input wire:model.lazy="deug_mention_s3" id="deug_mention_s3" name="deug_mention_s3" type="text" class="validate">
+            <label for="deug_mention_s3">* {{ __('words.deug_mention_s3') }}</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input wire:model.lazy="deug_mention_s4" id="deug_mention_s4" name="deug_mention_s4" type="text" class="validate">
+            <label for="deug_mention_s4">* {{ __('words.deug_mention_s4') }}</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input wire:model.lazy="licence_intitu" id="licence_intitu" name="licence_intitu" type="text" class="validate">
+            <label for="licence_intitu">* {{ __('words.licence_intitu') }}</label>
+        </div>
+
+        <div class="input-field col s2">
+            <input wire:model.lazy="licence_year" id="licence_year" name="licence_year" type="date" class="validate">
+            <label for="licence_year">* {{ __('words.licence_year') }}</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input wire:model.lazy="licence_speciality" id="licence_speciality" name="licence_speciality" type="text" class="validate">
+            <label for="licence_speciality">* {{ __('words.licence_speciality') }}</label>
+        </div>
+
+        <div class="input-field col s2">
+            <input wire:model.lazy="licence_mention_s5" id="licence_mention_s5" name="licence_mention_s5" type="text" class="validate">
+            <label for="licence_mention_s5">* {{ __('words.licence_mention_s5') }}</label>
+        </div>
+
+        <div class="input-field col s2">
+            <input wire:model.lazy="licence_mention_s6" id="licence_mention_s6" name="licence_mention_s6" type="text" class="validate">
+            <label for="licence_mention_s6">* {{ __('words.licence_mention_s6') }}</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input wire:model.lazy="master_intitu" id="master_intitu" name="master_intitu" type="text" class="validate">
+            <label for="master_intitu">* {{ __('words.master_intitu') }}</label>
+        </div>
+
+        <div class="input-field col s2">
+            <input wire:model.lazy="master_year" id="master_year" name="master_year" type="date" class="validate">
+            <label for="master_year">* {{ __('words.master_year') }}</label>
+        </div>
+
+        <div class="input-field col s3">
+            <input wire:model.lazy="master_speciality" id="master_speciality" name="master_speciality" type="text" class="validate">
+            <label for="master_speciality">* {{ __('words.master_speciality') }}</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input wire:model.lazy="master_mention_s7" id="master_mention_s7" name="master_mention_s7" type="text" class="validate">
+            <label for="master_mention_s7">* {{ __('words.master_mention_s7') }}</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input wire:model.lazy="master_mention_s8" id="master_mention_s8" name="master_mention_s8" type="text" class="validate">
+            <label for="master_mention_s8">* {{ __('words.master_mention_s8') }}</label>
+        </div>
+
+        <div class="input-field col s1">
+            <input wire:model.lazy="master_mention_s9" id="master_mention_s9" name="master_mention_s9" type="text" class="validate">
+            <label for="master_mention_s9">* {{ __('words.master_mention_s9') }}</label>
+        </div>
+
+        <div class="input-field col s12">
+            <textarea wire:model.lazy="note" id="note" class="materialize-textarea"></textarea>
+            <label for="note">ملحوظة</label>
+        </div>
+
+
+
+
+
+
+        <div class="col xl5 l6 m10 s10">
+            <div class="card">
+                <div class="card-content">
+                    @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session('message') }}
+                    </div>
+                    @endif
+                    {{-- <ul class="stepper horizontal" id="feeder">
+                <li class="step ">
+                    <div data-step-label="*حقل اجباري" class="step-title waves-effect waves-dark">معلومات شخصية</div>
+                    <div class="step-content" style="">
+                    <div class="row">
+
+
+                    </div>
+                    <div class="step-actions">
+                        <button class="waves-effect waves-dark btn blue next-step">التالى</button>
+                    </div>
+                    </div>
+                </li>
+
+                <li class="step">
+                    <div class="step-title waves-effect waves-dark"> معلومات عامة</div>
+                    <div class="step-content">
+                    <div class="row">
+
+
+                    </div>
+                    <div class="step-actions">
+                        <button class="waves-effect waves-dark btn green next-step">التالى</button>
+                        <button class="waves-effect waves-dark btn-flat previous-step">السابق</button>
+                    </div>
+                </li>
+
+                <li class="step">
+                    <div class="step-title waves-effect waves-dark"> المسار الدراسي </div>
+                    <div class="step-content">
+                    <div class="row">
+
+
+                    </div>
+                        <div class="step-actions">
+                            <button class="waves-effect waves-dark btn blue next-step">التالى</button>
+                            <button class="waves-effect waves-dark btn-flat previous-step">السابق</button>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="step">
+                    <div class="step-title waves-effect waves-dark">Step 3</div>
+                    <div class="step-content">
+                        <div class="row">
+
+                        </div>
+                    Finish!
+                    <div class="step-actions">
+                        <button class="waves-effect waves-dark btn blue" type="submit" wire:click.prevent="submitForm" wire:loading.class="bg-gray" wire:target='submitForm'>SUBMIT</button>
+                    </div>
+                    </div>
+                </li>
+            </ul> --}}
+                </div>
+            </div>
+        </div>

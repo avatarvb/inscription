@@ -1,0 +1,99 @@
+fname   الإسم الشخصي
+lname  الإسم العائلي
+cne   كود الطالب الوطني
+
+date_of_birth تاريخ الميلاد
+email  البريد الإلكتروني
+phone  هاتف
+mobile  التليفون المحمول
+city المدينة
+address عنوان
+
+note ملحوظة
+
+
+
+Informations personnelles :========================
+
+fname *
+lname *
+gender *
+nationality*
+cin_or_n_passport*
+date_of_birth *
+address *
+phone *
+mobile*
+email *
+pro_situation (select)*
+father_fname*
+father_lname*
+mother_fname*
+mother_lname*
+
+Parcours Universitaire :==============================
+
+cne
+bac_intitu
+bac_year
+bac_speciality
+bac_mention
+
+deug_intitu
+deug_year
+deug_speciality
+deug_mention_s1
+deug_mention_s2
+deug_mention_s3
+deug_mention_s4
+
+licence_intitu
+licence_year
+licence_speciality
+licence_mention_s5
+licence_mention_s6
+
+
+master_intitu
+master_year
+master_speciality
+master_mention_s7
+master_mention_s8
+master_mention_s9
+master_mention_s10
+
+[] =====================================
+
+other_diploma_intitu
+other_diploma_year
+other_diploma_speciality
+other_diploma_mention
+
+Doctorat :==============================
+
+doctoral_training
+research_focus
+labo
+
+Pièces jointes :==============================
+
+photo_file
+birth_certificate_file
+cin_or_n_passport_file
+work_certificate_or_not_file
+bac_file
+licence_file
+master_file
+other_diploma_file
+doctoral_project
+
+
+
+
+
+
+
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=
