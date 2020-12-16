@@ -2,11 +2,15 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Axe;
 use Livewire\Component;
 
 use Livewire\WithFileUploads;
 use App\Models\Candidat;
 use App\Models\Country;
+use App\Models\DoctoralTraining;
+use App\Models\Focus;
+use App\Models\Labo;
 use Illuminate\Http\Request;
 
 class Wizard extends Component
@@ -18,6 +22,14 @@ class Wizard extends Component
     public $passport_or_cin;
     public $countries = [];
     public $files = [];
+
+    public $list_doctoral_trining;
+    public $list_axe;
+    public $list_labo;
+    public $list_focus;
+
+    public $selectedDoctoralTrinig = NULL;
+    public $selectedLabo = NULL;
 
     // var inputs
 
@@ -91,29 +103,29 @@ class Wizard extends Component
         'gender' => 'required|min:4',
         'nationality' =>  'required',
         'cin_or_n_passport' =>  'required|min:4',
-        'date_of_birth' => 'required|min:4',
-        'address' =>  'required|min:4',
+        'date_of_birth' => 'required',
+        'address' =>  'required|min:6',
         'phone' =>  'min:4',
         'mobile' =>  'required|min:4',
         'email' =>  'required|min:4|email',
         'pro_situation' =>  'required',
-        'father_fname' =>  'required|min:4',
-        'father_lname' =>  'required|min:4',
-        'mother_fname' =>  'required|min:4',
-        'mother_lname' =>  'required|min:4',
-        'familly_situation' =>  'required|min:4',
-        'father_profession' =>  'required|min:4',
-        'mother_profession' =>  'required|min:4',
+        'father_fname' =>  'required|min:3',
+        'father_lname' =>  'required|min:3',
+        'mother_fname' =>  'required|min:3',
+        'mother_lname' =>  'required|min:3',
+        'familly_situation' =>  'required|min:3',
+        'father_profession' =>  'required|min:3',
+        'mother_profession' =>  'required|min:3',
 
 
         'cne' =>  'required|min:4',
         'bac_intitu' =>  'required|min:4',
-        'bac_year' =>  'required|min:4',
+        'bac_year' =>  'required|min:4|numeric',
         'bac_speciality' =>  'required|min:4',
         'bac_mention' =>  'required|min:1',
 
         'deug_intitu' =>  'required|min:4',
-        'deug_year' => 'required|min:4',
+        'deug_year' => 'required|min:4|numeric',
         'deug_speciality' => 'required|min:4',
         'deug_mention_s1' => 'required|min:1',
         'deug_mention_s2' => 'required|min:1',
@@ -121,24 +133,24 @@ class Wizard extends Component
         'deug_mention_s4' => 'required|min:1',
 
         'licence_intitu' => 'required|min:4',
-        'licence_year' => 'required|min:4',
+        'licence_year' => 'required|min:4|numeric',
         'licence_speciality' => 'required|min:4',
         'licence_mention_s5' => 'required|min:1',
         'licence_mention_s6' => 'required|min:1',
 
         'master_intitu' => 'required|min:4',
-        'master_year' => 'required|min:4',
+        'master_year' => 'required|min:4|numeric',
         'master_speciality' => 'required|min:4',
         'master_mention_s7' => 'required|min:1',
         'master_mention_s8' => 'required|min:1',
         'master_mention_s9' => 'required|min:1',
         'master_mention_s10' => 'required|min:1',
 
-        'doctoral_training' => 'required|min:4',
-        'research_focus' => 'required|min:4',
-        'labo' => 'required|min:4',
-        'project' => 'required|min:4',
-        'axe' => 'required|min:4',
+        'doctoral_training' => 'required',
+        'research_focus' => 'required',
+        'labo' => 'required',
+        'project' => 'required|min:10',
+        'axe' => 'required',
     ];
 
     // validation real-time
@@ -151,6 +163,11 @@ class Wizard extends Component
     {
         // fetch all countries with codes geo
         $this->countries = Country::all();
+        // dynamic selects
+        $this->list_doctoral_trining = DoctoralTraining::all();
+        $this->list_axe = collect();
+        $this->list_labo = Labo::all();
+        $this->list_focus = collect();
     }
 
     // component render
@@ -159,11 +176,20 @@ class Wizard extends Component
         return view('livewire.wizard');
     }
 
+    public function updatedDoctoralTraining($doc)
+    {
+        $this->list_axe = Axe::where('doctoral_training_id', $doc)->get();
+    }
+
+    public function updatedLabo($labo)
+    {
+        $this->list_focus = Focus::where('labo_id', $labo)->get();
+    }
+
     public function stepperUp($step)
     {
         $this->currentStep = $step;
     }
-
 
     // first step
     public function firstStepSubmit()
@@ -226,11 +252,11 @@ class Wizard extends Component
             'master_mention_s9' => 'required|min:1',
             'master_mention_s10' => 'required|min:1',
 
-            'doctoral_training' => 'required|min:4',
-            'research_focus' => 'required|min:4',
-            'labo' => 'required|min:4',
+            'doctoral_training' => 'required',
+            'research_focus' => 'required',
+            'labo' => 'required',
             'project' => 'required|min:4|max:255',
-            'axe' => 'required|min:4',
+            'axe' => 'required',
         ]);
 
         $this->currentStep = 3;

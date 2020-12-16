@@ -225,9 +225,11 @@
         </div>
 
         <div id="step-submit">
-            <button class="btn btn-primary" wire:click.prevent="firstStepSubmit()" >التالى</button>
-            <button class="btn btn-link" type="button"> {{$currentStep}} خطوة</button>
-            <button class="btn btn-primary" type="button" wire:click.prevent="back(1)"> <i class="icon icon-arrow-left"></i> </button>
+            <div>
+                <button class="btn btn-primary" wire:click.prevent="firstStepSubmit()" >التالى</button>
+                <button class="btn btn-link" type="button"> {{$currentStep}} خطوة</button>
+                <button class="btn btn-primary" type="button" wire:click.prevent="back(1)"> <i class="icon icon-arrow-left"></i> </button>
+            </div>
         </div>
     </section>
     @endif
@@ -494,22 +496,24 @@
             <div class="column col-3">
                 <div class="form-group @error('doctoral_training') has-error @enderror">
                     <label class="form-label" for="input-example-1">{{ __('words.doctoral_training') }} </label>
-                    <input class="form-input" type="text" wire:model.lazy="doctoral_training" id="doctoral_training" name="doctoral_training">
+                    <select class="form-select" wire:model.lazy="doctoral_training" id="doctoral_training" name="doctoral_training">
+                        <option>الرجاء التحديد</option>
+                        @foreach ($list_doctoral_trining as $doc)
+                        <option value="{{$doc->id}}">{{$doc->name}} </option>
+                        @endforeach
+                    </select>
+
                     @error('doctoral_training') <span class="form-input-hint float-right">{{$message}}.</span> @enderror
                 </div>
             </div>
             <div class="column col-3">
                 <div class="form-group @error('axe') has-error @enderror">
                     <label class="form-label" for="input-example-1">{{ __('words.axe') }} </label>
-                    <select class="form-select" wire:model.lazy="axe" id="research_focus" name="axe">
+                    <select class="form-select" wire:model.lazy="axe" id="research_focus" name="axe" {{ $list_doctoral_trining ? '' : 'disabled' }}>
                         <option>الرجاء التحديد</option>
-                        <option value="passable">Discourse, Creativity, Society and Religions </option>
-                        <option value="a_bien">Langue, Littérature, lmaginaire et Esthétique</option>
-                        <option value="bien">التاريخ، العلوم الشرعية واللغات </option>
-                        <option value="t_bien">الدراسات الأدبية واللسانية وعلوم الإعلام والتواصل  </option>
-                        <option value="t_bien">العلوم الدينية والإنسانية وقضايا المجتمع  </option>
-                        <option value="t_bien">المجال، التاريخ، الدينامية و التنمية المستدامة  </option>
-                        <option value="t_bien">Langues, Littérature et Traduction  </option>
+                        @foreach ($list_axe as $item)
+                        <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
                     </select>
                     @error('axe') <span class="form-input-hint float-right">{{$message}}.</span> @enderror
                 </div>
@@ -517,14 +521,24 @@
             <div class="column col-3 @error('labo') has-error @enderror">
                 <div class="form-group">
                     <label class="form-label" for="input-example-1">{{ __('words.labo') }} </label>
-                    <input class="form-input" type="text" wire:model.lazy="labo" id="labo" name="labo">
+                    <select class="form-select" type="text" wire:model.lazy="labo" id="labo" name="labo">
+                        <option>الرجاء التحديد</option>
+                        @foreach ($list_labo as $labo)
+                        <option value="{{$labo->id}}">{{$labo->name}}</option>
+                        @endforeach
+                    </select>
                     @error('labo') <span class="form-input-hint float-right">{{$message}}.</span> @enderror
                 </div>
             </div>
             <div class="column col-3">
                 <div class="form-group @error('research_focus') has-error @enderror">
                     <label class="form-label" for="input-example-1">{{ __('words.research_focus') }} </label>
-                    <input class="form-input" type="text" wire:model.lazy="research_focus" id="research_focus" name="research_focus">
+                    <select class="form-select" type="text" wire:model.lazy="research_focus" id="research_focus" name="research_focus" {{ $list_doctoral_trining ? '' : 'disabled' }}>
+                        <option>الرجاء التحديد</option>
+                        @foreach ($list_focus as $focus)
+                        <option value="{{$focus->id}}">{{$focus->name}}</option>
+                        @endforeach
+                    </select>
                     @error('research_focus') <span class="form-input-hint float-right">{{$message}}.</span> @enderror
                 </div>
             </div>
@@ -541,9 +555,11 @@
         </div>
 
         <div id="step-submit">
-            <button class="btn btn-primary" type="button" wire:click.prevent="back(1)"> <i class="icon icon-arrow-right"></i> </button>
-            <button class="btn btn-link" type="button"> {{$currentStep}} خطوة</button>
-            <button class="btn btn-primary" wire:click.prevent="secondStepSubmit()" >التالى</button>
+            <div>
+                <button class="btn btn-primary" type="button" wire:click.prevent="back(1)"> <i class="icon icon-arrow-right"></i> </button>
+                <button class="btn btn-link" type="button"> {{$currentStep}} خطوة</button>
+                <button class="btn btn-primary" wire:click.prevent="secondStepSubmit()" >التالى</button>
+            </div>
         </div>
     </section>
     @endif
@@ -586,8 +602,10 @@
         </div>
 
         <div id="step-submit">
-            <button class="btn btn-primary" type="button" wire:click.prevent="back(1)"> <i class="icon icon-arrow-left"></i> </button>
-            <button class="btn btn-primary" wire:click.prevent="submitForm()" wire:loading.class="loading" >valider</button>
+            <div>
+                <button class="btn btn-primary" type="button" wire:click.prevent="back(1)"> <i class="icon icon-arrow-left"></i> </button>
+                <button class="btn btn-primary" wire:click.prevent="submitForm()" wire:loading.class="loading" >valider</button>
+            </div>
         </div>
     </section>
     @endif

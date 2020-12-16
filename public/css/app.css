@@ -34,6 +34,11 @@ ul{list-style-type: none !important;}
 #step-submit{
     margin-top:20px ;
 }
+#step-submit div{
+    width: 200px;
+    margin-right: 45% !important;
+}
+
 .toast{box-shadow: 1px 1px 2px#DDD;margin-bottom: 15px;}
 
 
